@@ -15,7 +15,7 @@ module.exports = class User extends Model
 
 	@current = localStorage.get('User.current')
 	@ADMIN = 'admin'
-	@USER = 'client'
+	@CLIENT = 'client'
 
 
 	@logIn: (form)->

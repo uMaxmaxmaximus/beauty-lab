@@ -1,7 +1,7 @@
-export default class UserPage {
+export default class ClientPage {
 
+	static style = require('./ClientPage.styl')
 	static template = `
-    UserPage
     <button (click)="User.logOut()">Выход</button>
   `
 

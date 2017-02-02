@@ -12,10 +12,11 @@ export default class AdminPage {
 		
 		<ul .users>
 			<li .user *for="user in users">
-				{{ user.fullName }}	
+				{{ user.fullName }}
+				<button (click)="user.remove()">Удалить</button>
 			</li>	
 		</ul>
-		
+		 
 		<popup #createUserPopup>
 			Создать пользователя
 			<form (submit)="createUser(this)">
@@ -28,15 +29,12 @@ export default class AdminPage {
 
 	constructor() {
 		this.users = User.range({type: 'client'})
-		console.log(this.users)
 	}
-
 
 	async createUser(form) {
 		form.value.type = 'client'
 		await User.add(form.value)
 		this.scope.createUserPopup.close()
 	}
-
 
 }

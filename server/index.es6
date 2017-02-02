@@ -12,14 +12,8 @@ import './core/encoder-formats'
 
 //models
 import './models/user'
-import './models/place'
-import './models/organization'
-import './models/car'
-import './models/request'
 
 console.log('server starting')
-
-
 
 
 
