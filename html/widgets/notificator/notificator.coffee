@@ -68,7 +68,6 @@ module.exports = class Notificator
 
 class Message extends EventEmitter
 
-
 	constructor: (text, type, time = 3000)->
 		super()
 		@text = text

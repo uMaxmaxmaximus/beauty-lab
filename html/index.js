@@ -39,5 +39,20 @@ ui.bootstrap(class App {
 	}
 
 
+	alert(text) {
+		this.scope.notificator.alert(text)
+	}
+
+
+	error(text) {
+		this.scope.notificator.error(text)
+	}
+
+
+	warning(text) {
+		this.scope.notificator.warning(text)
+	}
+
+
 })
 
