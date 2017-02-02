@@ -1,0 +1,65 @@
+:host
+	display inline-flex
+	flex-direction column
+	justify-content center
+	text-align center
+	color white
+	padding 0.5em 0
+
+	&.__no-pages
+		display none
+
+.constraint-page
+	color #999
+	font-size 0.5em
+
+.loader
+	height 1em
+	background-image url('./loader.png')
+	background-size contain
+	background-repeat no-repeat
+	background-position center
+	animation spin 0.5s infinite
+	opacity 0.5
+
+	&.__hide
+		display none
+
+.active-page
+
+	&.__hide
+		display none
+
+.arrow
+	size 2em 1.5em
+	transition transform 0.2s, opacity 0.2s
+	position relative
+	cursor pointer
+	opacity 0.5
+
+	&:before
+		content ''
+		absolute top 0 left 0
+		size 100%
+		background-size contain
+		background-position center
+		background-repeat no-repeat
+		background-origin content-box
+		padding 0.2em
+
+	&:hover
+		transform scale(1, 1.5)
+		opacity 1
+
+	&.__prev:before
+		background-image url('./arrow.png')
+
+	&.__next:before
+		background-image url('./arrow.png')
+		transform rotateZ(180deg)
+
+.__hide
+	opacity 0 !important
+	pointer-events none !important
+
+

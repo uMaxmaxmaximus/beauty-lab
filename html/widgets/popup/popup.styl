@@ -1,0 +1,63 @@
+$time = 0.4s
+
+:host
+	absolute top 0 left 0
+	size 100%
+	z-index 1000
+	perspective 10em
+	display flex
+	align-items center
+	justify-content center
+	flex-direction column
+	color white
+	contain strict
+
+	&:before
+		content ''
+		display block
+		absolute top 0 left 0
+		size 100%
+		opacity 0
+		transition opacity $time
+		will-change opacity
+		background-color rgba(#000, 0.4)
+		pointer-events none
+		z-index -1
+		padding 1em
+
+	&.__non-active
+		pointer-events none
+
+	&.__active
+
+		&:before
+			opacity 1
+
+		.content
+			opacity 1
+			transition transform $time
+
+.content
+	opacity 0
+	transition transform $time, opacity $time
+	will-change transform, opacity
+	transform rotateZ(-10deg) rotateY(20deg) translateX(-5em) scale(0.8)
+	display flex
+	flex-direction column
+	justify-content center
+	align-items center
+	display flex
+	flex-direction column
+	justify-content flex-end
+	margin 1em 3em
+	background-color #4c4c4c
+	border-radius 0.3em
+	overflow hidden
+	padding 0.5em
+	contain layout paint
+
+	.__mobile &
+		margin 0.5em
+
+
+

@@ -1,0 +1,31 @@
+$time = 0.3s
+
+:host
+	display flex
+	margin 0.5em
+	background-color rebeccapurple
+	position relative
+
+.container
+
+	&.__active
+
+		.label
+			transform scale(0.6) translateY(-100%)
+			color #aaa
+
+.label
+	background-color white
+	color #bababa
+	absolute top 0 left 0.15em
+	padding 0.1em 0.5em
+	transform translateY(0.35em)
+	transform-origin left
+	transition transform $time, color $time
+	pointer-events none
+
+.textarea
+	padding 0 0.5em
+	outline none
+	border solid 0.15em #555
+

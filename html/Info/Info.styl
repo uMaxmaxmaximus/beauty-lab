@@ -1,0 +1,27 @@
+:host
+	display block
+	flex-shrink 0
+	z-index 200
+	box-shadow 0 0 1em black
+
+.server-connection-error
+	background-color #ac3e3d
+	background-size auto 100%
+	padding 0.5em
+	text-align center
+	color white
+
+.server-tasks
+	absolute top 0 left 0
+	size 100% 0.25em
+	background-color #bcff53
+	background-image url('./request.gif')
+	background-size auto 300%
+	transition transform 0.3s
+	transform translateY(-110%)
+
+	&.__show
+		transform none
+		transition transform 0.3s 0.3s
+
+

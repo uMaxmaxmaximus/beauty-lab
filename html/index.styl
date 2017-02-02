@@ -1,0 +1,70 @@
+support-for-ie = false
+vendor-prefixes = official
+flex-version = flex
+
+global-reset()
+
+:before, :after, *
+	cursor inherit
+	font-size inherit
+	text-align inherit
+	font-family inherit
+	user-select inherit
+	cursor inherit
+	line-height inherit
+	box-sizing border-box
+	vertical-align top
+	margin 0
+	padding 0
+	contain layout style
+
+body
+	position absolute
+	size 100%
+	font-family Tahoma
+	overflow hidden
+	user-select none
+	cursor default
+
+input, textarea
+	user-select text
+	cursor text
+
+hr
+	background-color rebeccapurple
+	border none
+	border-bottom 1px solid #666
+	margin 0.5em
+
+::selection
+	color white
+	background-color rgba(#222, 0.8)
+
+@keyframes spin
+	from
+		transform: rotate(0deg)
+	to
+		transform: rotate(360deg)
+
+:host
+	background-color #333
+	size 100%
+	display flex
+	flex-direction column
+	justify-content center
+	align-items center
+
+	.container
+		background-color white
+		width 17em
+		height 30em
+		display flex
+		flex-direction column
+		position relative
+
+		&.__mobile-mode
+			size 100%
+			font-size 1.4em
+
+
+

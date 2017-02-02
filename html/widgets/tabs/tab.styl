@@ -1,0 +1,26 @@
+:host
+	$time = 0.4s
+	display block
+	absolute top 0 left 0
+	size 100%
+	opacity 0
+	//overflow hidden
+	transition opacity $time, transform $time, max-height $time
+	transform rotate3d(0, 0, 0, 0)
+	will-change transform
+
+	&.__prev
+		pointer-events none
+		transform scale(1.3) rotateX(-30deg) rotate3d(0, 0, 0, 0)
+
+	&.__next
+		pointer-events none
+		transform scale(0.75) rotateX(-30deg) rotate3d(0, 0, 0, 0)
+
+	&.__active
+		opacity 1
+		position relative
+
+
+
+
