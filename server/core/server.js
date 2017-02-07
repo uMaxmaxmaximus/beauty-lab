@@ -1,24 +1,28 @@
 import socketIo from 'socket.io'
+import socketStream from 'socket.io-stream'
 import config from '../config'
 import cookieParser from 'cookie'
 import Encoder from './encoder'
 import Params from './params'
+import User from '../models/user'
 
 
 export default new class Server {
 
 
 	constructor() {
-		this.io = socketIo(config.port)
 		this.methods = []
 		this.connections = []
-		this.io.on('connection', socket => this.onConnect(socket))
+		this.io = socketIo(config.port)
+		this.io.on('connection', socket => {
+			return this.onConnect(socketStream(socket))
+		})
 	}
 
 
 	async onConnect(socket) {
-		let cookies = cookieParser.parse(socket.handshake.headers.cookie)
-		let User = require('../models/user').default
+		let cookies = cookieParser.parse(socket.sio.handshake.headers.cookie)
+		console.log(User)
 		let user = await User.getBySessionKey(cookies['session-key'])
 		let connection = new Connection(this, socket, user)
 		this.connections.push(connection)
@@ -51,8 +55,11 @@ export default new class Server {
 
 
 	addMethod(name, func) {
-		if (this.hasMethod(name))
+		if (this.hasMethod(name)) {
+			debugger
 			throw Error(`Метод ${name} уже существует`)
+		}
+
 		this.methods.push({name, func})
 	}
 
@@ -90,7 +97,7 @@ class Connection {
 		this.tasks = []
 		this.tasksIsRunned = false
 
-		this.checkOnline()
+		return this.checkOnline()
 	}
 
 

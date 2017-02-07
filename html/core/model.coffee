@@ -132,10 +132,9 @@ module.exports = class Model extends API
 			promise = Promise.resolve()
 
 		return promise.then =>
-			return @call('remove', {_id: @_id})
-				.then (res)=>
-			@updateRanges()
-			return res
+			return @call('remove', {_id: @_id}).then (res)=>
+				@updateRanges()
+				return res
 
 
 	save: =>

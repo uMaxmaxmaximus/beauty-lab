@@ -5,23 +5,21 @@ module.exports = class File
 
 	@template = "
 		<button .button>
-		
+
+			<input #input .input type='file'
+				(change)='onChange()'
+				[multiple]='multiple'
+				[value]='value'>
+			</input>
+
 			<div .label *if='not fileInfo'>
 				<content></content>
 			</div>
-	
-			<input #input .input
-			(change)='onChange()'
-			type='file'
-			[multiple]='multiple'
-			[value]='value'>
-			</input>
-	
+
 			<div .info *if='fileInfo'>
 				<div .controls>
-					<span .reset (click)='reset()'></span>
+					<span .reset (!mousedown) (click)='reset()'></span>
 				</div>
-	
 			  <span .name>{{ fileInfo.name }}</span>
 			</div>
 		

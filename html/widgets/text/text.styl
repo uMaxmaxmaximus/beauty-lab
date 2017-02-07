@@ -6,45 +6,47 @@ $time = 0.3s
 	display block
 	contain layout
 
-.container
-	position relative
-	display flex
-	flex-direction column
-	align-items stretch
-	flex-grow 1
+	.container
+		position relative
+		display flex
+		flex-direction column
+		align-items stretch
+		flex-grow 1
 
-	&.__active
+		&.__active
 
-		.label
-			transform scale(0.7) translate(-0.9em, -110%)
-			color #bbb
+			.label
+				transform scale(0.7) translate(-0.9em, -110%)
+				color #bbb
 
-	&.__error
+		&.__error
 
-		.input
-			background-color #ac3e3d
-			color white
-			outline none !important
+			.input
+				background-color rgba(#ac3e3d, 0.5)
+				color white
+				outline none !important
 
-		.label
-			color rgba(255, 255, 255, 0.6)
+			.label
+				color rgba(255, 255, 255, 0.6)
 
-.input
-	height 2em
-	padding 0 0.5em
-	outline none !important
-	border solid 1px #555
+	.input
+		height 2em
+		padding 0 0.5em
+		outline none !important
+		border solid 1px white
+		background-color transparent
+		color white
 
-.label
-	color #bababa
-	absolute top 0 left 0.35em
-	padding 0.1em 0.5em
-	transform translateY(0.4em)
-	transform-origin left top
-	pointer-events none
-	transition transform $time, color $time
-	will-change transform
-	text-shadow none
-	contain content
+	.label
+		color #bababa
+		absolute top 0 left 0.35em
+		padding 0.1em 0.5em
+		transform translateY(0.4em)
+		transform-origin left top
+		pointer-events none
+		transition transform $time, color $time
+		will-change transform
+		text-shadow none
+		contain content
 
 

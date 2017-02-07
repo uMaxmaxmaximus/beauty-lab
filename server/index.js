@@ -10,8 +10,8 @@ Date.setTimezoneOffset(config.timezoneOffset)
 
 import './core/encoder-formats'
 
-//models
-import './models/user'
+import './models/User'
+// import './models/Background'
 
 console.log('server starting')
 

@@ -31,10 +31,12 @@ export default class AdminPage {
 		this.users = User.range({type: 'client'})
 	}
 
+
 	async createUser(form) {
 		form.value.type = 'client'
 		await User.add(form.value)
 		this.scope.createUserPopup.close()
+		form.reset()
 	}
 
 }

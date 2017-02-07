@@ -1,18 +1,16 @@
 :host
 	display flex
-	//background-color red
 	flex-direction column
 	flex-grow 1
 
 	.panel
 		display flex
 		flex-direction row
-		background-color #333
+		background-color rgba(#333, 0.5)
 		justify-content space-between
 		flex-shrink 0
 
 	.users
-		//background-color green
 		flex-grow 1
 		overflow auto
 
@@ -21,10 +19,9 @@
 			flex-direction row
 			justify-content space-between
 			align-items center
-			//background-color aquamarine
 			padding-left 0.5em
 			color white
+			text-shadow 0 0 1em rgba(black, 0.5)
 
 			&:hover
-				background-color #d3c5b4
-				color #333333
+				background-color rgba(black, 0.2)

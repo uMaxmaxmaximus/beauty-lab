@@ -1,9 +1,17 @@
-EventEmitter = require 'ui-js/core/event-emitter'
+EventEmitter = require('ui-js/core/event-emitter')
 Encoder = require('server/core/encoder').default
-io = require 'socket.io-client'
+socketIo = require('socket.io-client')
+socketStream = require('socket.io-stream')
+
+
+if location.href.indexOf('file:///') is -1
+	URL = "#{location.hostname}:8081"
+else
+	URL = "http://mind-transrus.ru:8081"
 
 
 module.exports = new class Server extends EventEmitter
+
 
 	constructor: ->
 		super
@@ -11,11 +19,7 @@ module.exports = new class Server extends EventEmitter
 		@queue = []
 		@connected = true
 
-		if location.href.indexOf('file:///') is -1
-			@io = io.connect("#{location.hostname}:8081")
-		else
-			@io = io.connect("http://mind-transrus.ru:8081")
-
+		@io = socketStream(socketIo.connect(URL))
 		@io.on('connect_error', @onDisconnect)
 		@io.on('response', @onResponse)
 		@io.on('connect', @onConnect)

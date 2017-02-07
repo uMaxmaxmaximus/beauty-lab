@@ -83,7 +83,7 @@ const CONFIG = {
 
 function compile(dest, stream) {
 	const filterCoffee = filter('**/*.coffee', {restore: true, passthrough: false});
-	const filterES6 = filter('**/*.es6', {restore: true, passthrough: false});
+	const filterJs = filter('**/*.js', {restore: true, passthrough: false});
 
 	return stream
 		.pipe(plumber({errorHandler: errorHandler}))
@@ -92,11 +92,11 @@ function compile(dest, stream) {
 		.pipe(coffee())
 		.pipe(sourcemaps.write('.'))
 		.pipe(filterCoffee.restore)
-		.pipe(filterES6)
+		.pipe(filterJs)
 		.pipe(sourcemaps.init())
 		.pipe(babel({presets: ['es2015', 'stage-0']}))
 		.pipe(sourcemaps.write('.'))
-		.pipe(filterES6.restore)
+		.pipe(filterJs.restore)
 		.pipe(gulp.dest(dest))
 }
 

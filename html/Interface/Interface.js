@@ -1,7 +1,6 @@
 import LoginForm from './LoginForm/LoginForm'
-import ClientPage from './ClientPage/ClientPage'
 import AdminPage from './AdminPage/AdminPage'
-import User from '../core/api/user'
+import ClientPage from './ClientPage/ClientPage'
 
 
 export default class Interface {
@@ -11,13 +10,9 @@ export default class Interface {
 
 	static template = `
 		<LoginForm *if="!User.current"></LoginForm>
-		<ClientPage *if="User.current.type is User.CLIENT"></ClientPage>
 		<AdminPage *if="User.current.type is User.ADMIN"></AdminPage>
+		<ClientPage *if="User.current.type is User.CLIENT"></ClientPage>
 	`
-
-	constructor() {
-		window.User = User
-	}
 
 }
 

@@ -38,12 +38,13 @@ module.exports = class Input extends Element
 
 
 	reset: ->
-		@setDefaultValue_()
+		@_setDefaultValue()
 		@mutate('changeInput')
+		@emit('change')
 		return
 
 
-	setDefaultValue_: ->
+	_setDefaultValue: ->
 		switch @type_
 			when 'text' then @value = ''
 			when 'password' then @value = ''
@@ -54,7 +55,6 @@ module.exports = class Input extends Element
 				else
 					@value_ = []
 				@value = @value_
-
 		return
 
 
@@ -66,7 +66,7 @@ module.exports = class Input extends Element
 
 	setType: (type)->
 		@type_ = @normalizeType_(type)
-		@setDefaultValue_()
+		@_setDefaultValue()
 		@attr('type', @type_)
 		return
 

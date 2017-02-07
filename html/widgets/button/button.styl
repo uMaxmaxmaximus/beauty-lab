@@ -1,119 +1,62 @@
-$time = 0.2s
-
 :host
-	background-color rgba(#000, 0.4)
+	$time = 0.2s
 	cursor pointer
 	display inline-block
 	perspective 10em
 	border-radius 0.28em
 	user-select none
-	border 1px solid rgba(#ddd, 0.5)
 	contain layout
 	margin 0.5em
 
 	& + &
 		margin-left 0
 
-	&.__white
-		border 1px solid #ddd
-
-		.content
-			background-color #ddd
-			color #333
-
-			&:hover, &:active
-				background-color #eee
-
-	&.__green
-		border 1px solid #d1ff65
-
-		.content
-			background-color #c4ef5f
-			color #444
-
-			&:hover, &:active
-				background-color #d1ff65
-
-	&.__red
-		border 1px solid #c94847
-
-		.content
-			background-color #c94847
-
-			&:hover, &:active
-				background-color #d64d4c
-
-.content
-	display flex
-	flex-direction collumn
-	justify-content center
-	align-items center
-	background-color #4c4c4c
-	color white
-	size 100%
-	padding 0.5em 1em
-	line-height 1em
-	min-height 2em
-	min-width 3em
-	position relative
-	border-radius 0.2em
-	transition transform $time, box-shadow $time
-	will-change transform, box-shadow
-	overflow hidden
-	text-align center
-	contain content layout style
-
-	&:hover
-		background-color #5f5f5f
-
-	&:active
-		box-shadow inset 0 0 1em rgba(black, 0.1)
-		background-color #5f5f5f
-
-	.shadow
-		content ''
-		absolute top 0 left 0
+	.content
+		display flex
+		flex-direction collumn
+		justify-content center
+		align-items center
+		color white
 		size 100%
-		z-index 2
-		transition opacity $time
-		pointer-events none
-		will-change opacity
-		opacity 0.00001
+		padding 0.5em 1em
+		line-height 1em
+		min-height 2em
+		min-width 3em
+		position relative
+		border-radius 0.2em
+		transition transform $time, box-shadow $time
+		will-change transform, box-shadow
+		overflow hidden
+		text-align center
+		contain content layout style
+		border 1px solid white
 
-		&.__shadow-left
-			background-image linear-gradient(left, rgba(black, 0.4), rgba(black, 0))
+		&:active
+			box-shadow inset 0 0 1em rgba(black, 0.1)
 
-		&.__shadow-right
-			background-image linear-gradient(right, rgba(black, 0.4), rgba(black, 0))
 
-		&.__shadow-bottom
-			background-image linear-gradient(bottom, rgba(black, 0.4), rgba(black, 0))
+		/* Полжоения кнопкки */
+		&.__left
+			transform rotateY(-25deg) scale(0.95, 0.9) translateX(-0.3em)
 
-		&.__shadow-top
-			background-image linear-gradient(top, rgba(black, 0.4), rgba(black, 0))
+			.__shadow-left
+				opacity 1
 
-	/* Полжоения кнопкки */
-	&.__left
-		transform rotateY(-25deg) scale(0.95, 0.9) translateX(-0.3em)
+		&.__right
+			transform rotateY(25deg) scale(0.95, 0.9) translateX(0.3em)
 
-		.__shadow-left
-			opacity 1
+			.__shadow-right
+				opacity 1
 
-	&.__right
-		transform rotateY(25deg) scale(0.95, 0.9) translateX(0.3em)
+		&.__bottom
+			transform rotateX(-35deg) scale(0.9) translateY(0.1em)
 
-		.__shadow-right
-			opacity 1
+			.__shadow-bottom
+				opacity 1
 
-	&.__bottom
-		transform rotateX(-35deg) scale(0.9) translateY(0.1em)
+		&.__top
+			transform rotateX(35deg) scale(0.9) translateY(-0.1em)
 
-		.__shadow-bottom
-			opacity 1
-
-	&.__top
-		transform rotateX(35deg) scale(0.9) translateY(-0.1em)
-
-		.__shadow-top
-			opacity 1
+			.__shadow-top
+				opacity 1
 

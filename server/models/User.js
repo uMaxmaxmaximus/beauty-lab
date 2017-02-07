@@ -2,6 +2,8 @@ import passwordHash from 'password-hash'
 import Model from '../core/model'
 import Utils from '../core/utils'
 
+console.log(Model)
+
 
 export default class User extends Model {
 
